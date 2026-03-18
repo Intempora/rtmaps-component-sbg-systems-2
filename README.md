@@ -1,7 +1,13 @@
 # Introduction
 
-This repository contains sample RTMaps components that use the [SBG Systems](https://github.com/SBG-Systems/sbgECom)
+This repository contains sample RTMaps components that support the [SBG Systems](https://github.com/SBG-Systems/sbgECom)
 library to interface SBG Systems devices (IMU, AHRS and INS).
+
+See them in action with the YouTube videos here below:
+
+[![IMAGE_ALT](https://img.youtube.com/vi/4wYnk9i7XWE/0.jpg)]([https://www.youtube.com/watch?v=UmX4kyB2wfg](https://youtu.be/4wYnk9i7XWE))
+[![IMAGE_ALT](https://img.youtube.com/vi/zvZJ1cTgCYE/0.jpg)]([https://www.youtube.com/watch?v=zvZJ1cTgCYE](https://youtu.be/zvZJ1cTgCYE))
+
 
 # Contents
 
