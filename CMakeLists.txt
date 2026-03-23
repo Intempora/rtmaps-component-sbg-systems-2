@@ -2,12 +2,12 @@ cmake_minimum_required(VERSION 3.5)
 
 # Package name (without the "rtmaps_" prefix)
 set(PCK sbg_systems_2)
-project("${PCK}.u")
 
 ##################################
 # General project configuration
 ##################################
 
+project("${PCK}.u")
 if (NOT DEFINED CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD          17)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -70,5 +70,6 @@ if (MSVC)
     target_link_libraries(${PCK} Ws2_32)
 endif()
 
-# Set installation directory for the PCK file
-install(TARGETS ${PCK} DESTINATION "${RTMAPS_SDKDIR}/packages")
+# Set installation directory for the files
+install(TARGETS ${PCK} DESTINATION "${RTMAPS_SDKDIR}/packages/rtmaps_${PCK}/")
+install(DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/doc" DESTINATION "${RTMAPS_SDKDIR}/packages/rtmaps_${PCK}/")

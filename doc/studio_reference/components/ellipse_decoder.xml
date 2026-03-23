@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ComponentResources xmlns="http://schemas.intempora.com/RTMaps/2011/ComponentResources" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="ellipse_decoder" xsi:noNamespaceSchemaLocation="http://www.intempora.com/schemas/RTMaps/2011/ComponentResources.xsd">
+  <Type>Component</Type>
+  <IconFile>SBG1.png</IconFile>
+  <TargetOS>OS-independent</TargetOS>
+  <Lang lang="ENG">
+    <GroupName>Sensors</GroupName>
+    <Documentation>
+      <Component>
+        <Alias>sbgECom decoder</Alias>
+        <Description>
+          <span><![CDATA[
+          This component splits data acquired by the <code>sbgECom device</code> component into vectors of data with
+          standard data types (integers, floats, doubles...) on outputs corresponding to the different message types
+          provided by the device.
+
+          <b>Update in version 2.0.0</b><br/>
+          Some breaking changes were introduced in version 2.0.0 to upgrade SDK to version 5.4.1684. This introduces
+          changes to the following properties:
+          <ul>
+            <li>
+              <b>output_ship_motion_1, output_ship_motion_2 etc.:</b>
+              Ship motions are unified into just one field in the new version. Therefore, these properties are removed
+              and only output_ship_motion_0 remains.
+            </li>
+            <li>
+              <b>output_ship_motion_hp_1, output_ship_motion_hp_1 etc.:</b>
+              Ship motions HP are unified into just one field in the new version. Therefore, these properties are
+              removed and only output_ship_motion_hp_0 remains.
+            </li>
+          </ul>
+
+          ...and to the following outputs:
+          <ul>
+            <li>
+              <b>ship_motion_1, ship_motion_2 etc.:</b>
+              Ship motions are unified into just one field in the new version. Therefore, these outputs are removed
+              and only ship_motion_0 remains.
+            </li>
+            <li>
+              <b>ship_motion_hp_1, ship_motion_hp_1 etc.:</b>
+              Ship motions HP are unified into just one field in the new version. Therefore, these outputs are
+              removed and only ship_motion_hp_0 remains.
+            </li>
+          </ul>
+          ]]></span>
+        </Description>
+      </Component>
+      <Property MAPSName="output_status">
+        <Alias>Output status</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_utc_time">
+        <Alias>Output UTC time</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_imu_data">
+        <Alias>Output IMU data</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_mag">
+        <Alias>Output mag</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_mag_calib">
+        <Alias>Output mag calibration</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_ekf_euler">
+        <Alias>Output EKF Euler angles</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_ekf_quat">
+        <Alias>Output EKF quaternions</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_ekf_nav">
+        <Alias>Output EKF navigation</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_ship_motion_0">
+        <Alias>Output ship motion</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_gps_1_vel">
+        <Alias>Output GPS 1 velocity</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_gps_2_vel">
+        <Alias>Output GPS 2 velocity</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_gps_1_pos">
+        <Alias>Output GPS 1 position</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_gps_2_pos">
+        <Alias>Output GPS 2 position</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_gps_1_hdt">
+        <Alias>Output GPS 1 HDT</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_gps_2_hdt">
+        <Alias>Output GPS 2 HDT</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_gps_1_raw">
+        <Alias>Output GPS 1 raw data</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_odo_vel">
+        <Alias>Output odometer velocity</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_event_A">
+        <Alias>Output event A</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_event_B">
+        <Alias>Output event B</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_event_C">
+        <Alias>Output event C</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_event_D">
+        <Alias>Output event D</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_event_E">
+        <Alias>Output event E</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_dvl_bottom_track">
+        <Alias>Output DVL bottom track</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_ship_motion_hp_0">
+        <Alias>Output ship motion hp</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_pressure">
+        <Alias>Output pressure</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Property MAPSName="output_usbl">
+        <Alias>Output Usbl</Alias>
+        <Description>
+          <span/>
+        </Description>
+      </Property>
+      <Output MAPSName="status">
+        <Alias>Status</Alias>
+        <Description>
+          <span><![CDATA[Status general, clock, com aiding, solution, heave.<br/>
+Vector of 3 MAPSUInt32:<br/>
+<ul>
+<li>General status bitmask and enums.</li>
+<li>Communication status bitmask and enums.</li>
+<li>Aiding equipments status bitmask and enums.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="utc_time">
+        <Alias>UTC time</Alias>
+        <Description>
+          <span><![CDATA[Vector of 9 MAPSInt32:<br/>
+<ul>
+<li>Year for example: 2013.</li>
+<li>Month in year [1 .. 12].</li>
+<li>Day in month [1 .. 31].</li>
+<li>Hour in day [0 .. 23].</li>
+<li>Minute in hour [0 .. 59].</li>
+<li>Second in minute [0 .. 60]. (60 is used only when a leap second is added)</li>
+<li>Nanosecond of current second in ns.</li>
+<li>GPS time of week in ms.</li>
+<li>Status. Reserved for future use.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="utc_time_us">
+        <Alias>UTC time (microseconds)</Alias>
+        <Description>
+          <span><![CDATA[UTC time in microseconds (1 MAPSInt64).]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="imu_acceleration">
+        <Alias>IMU acceleration</Alias>
+        <Description>
+          <span><![CDATA[Vector of 4 MAPSFloat32:<br/>
+<ul>
+<li> X accelerometer in m.s^-2.</li>
+<li> Y accelerometer in m.s^-2.</li>
+<li> Z accelerometer in m.s^-2.</li>
+<li> IMU status bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="imu_gyros">
+        <Alias>IMU gyros</Alias>
+        <Description>
+          <span><![CDATA[Vector of 4 MAPSFloat32:<br/>
+<ul>
+<li> X gyroscope in rad.s^-1.</li>
+<li> Y gyroscope in rad.s^-1.</li>
+<li> Z gyroscope in rad.s^-1.</li>
+<li> IMU status bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="imu_other">
+        <Alias>IMU other</Alias>
+        <Description>
+          <span><![CDATA[Vector of 8 MAPSFloat32:<br/>
+<ul>
+<li> X, Y, Z delta velocity in m.s^-2.</li>
+<li> X, Y, Z delta angle in rad.s^-1.</li>
+<li> Internal temperature in °C.</li>
+<li> IMU status bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="mag">
+        <Alias>Magnetic data</Alias>
+        <Description>
+          <span><![CDATA[Magnetic data with associated accelerometer on each axis.<br/>
+Vector of 7 MAPSFloat32:
+<ul>
+<li>X, Y, Z magnetometer data in A.U.</li>
+<li>X, Y, Z accelerometers in m.s^-2.</li>
+<li>Magnetometer status bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="mag_calib">
+        <Alias>Magnetometer calibration data</Alias>
+        <Description>
+          <span><![CDATA[Magnetometer calibration data (raw buffer) <br/>
+Vector of 16 MAPSInt32.<br/>
+]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="ekf_euler">
+        <Alias>EKF Euler angles</Alias>
+        <Description>
+          <span><![CDATA[Roll, pitch, yaw and their accuracies on each axis.<br/>
+Vector of 7 MAPSFloat32:<br/>
+<ul>
+<li>Roll, Pitch and Yaw angles in rad.</li>
+<li>Roll, Pitch and Yaw angles 1 sigma standard deviation in rad.</li>
+<li>EKF solution status bitmask and enum.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="ekf_quat">
+        <Alias>EKF quaternion</Alias>
+        <Description>
+          <span><![CDATA[EKF orientation in the form of a quaternion.<br/>
+Vector of 8 MAPSFloat32:<br/>
+<ul>
+<li>Orientation quaternion stored in W, X, Y, Z form.</li>
+<li>Roll, Pitch and Yaw angles 1 sigma standard deviation in rad.</li>
+<li>EKF solution status bitmask and enum.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="ekf_nav_pos">
+        <Alias>EKF navigation position</Alias>
+        <Description>
+          <span><![CDATA[Position in NED coordinates with the accuracies on each axis.<br/>
+Vector of 8 MAPSFloat64:<br/>
+<ul>
+<li>Latitude, Longitude in degrees positive North and East.</li>
+<li>Latitude, longitude and altitude 1 sigma standard deviation in meters. </li>
+<li>Undulation: Altitude difference between the geoid and the Ellipsoid in meters (Height above Ellipsoid = altitude + undulation).</li>
+<li>EKF solution status bitmask and enum.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="ekf_nav_vel">
+        <Alias>EKF navigation velocities</Alias>
+        <Description>
+          <span><![CDATA[Velocities in NED coordinates with the accuracies on each axis.<br/>
+Vector of 7 MAPSFloat32:<br/>
+<ul>
+<li>North, East, Down velocity in m.s^-1.</li>
+<li>North, East, Down velocity 1 sigma standard deviation in m.s^-1.</li>
+<li>EKF solution status bitmask and enum.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="ship_motion_0">
+        <Alias>Ship motion</Alias>
+        <Description>
+          <span><![CDATA[Heave, surge and sway and accelerations on each axis for up to 4 points.<br/>
+Vector of 11 MAPSFloat32:<br/>
+<ul>
+<li>Surge, sway and heave in meters.</li>
+<li>Surge, sway and heave velocities.</li>
+<li>Surge, sway and heave ship Acceleration in m.s^-2.</li>
+<li>Main heave period in seconds.</li>
+<li>Ship Motion data status bitmask</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="gps_1_vel">
+        <Alias>GPS 1 velocities</Alias>
+        <Description>
+          <span><![CDATA[GPS velocities from primary or secondary GPS receiver.<br/>
+Vector of 10 MAPSFloat32:<br/>
+<ul>
+<li>GPS North, East, Down velocity in m.s^-1.</li>
+<li>GPS North, East, Down velocity 1 sigma accuracy in m.s^-1.</li>
+<li>Track ground course in degrees.</li>
+<li>Course accuracy in degrees.</li>
+<li>GPS time of week in ms.</li>
+<li>GPS velocity status, type and bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="gps_1_pos">
+        <Alias>GPS 1 positions</Alias>
+        <Description>
+          <span><![CDATA[GPS positions from primary or secondary GPS receiver.<br/>
+Vector of 9 MAPSFloat64:<br/>
+<ul>
+<li>Latitude in degrees, positive north.</li>
+<li>Longitude in degrees, positive east.</li>
+<li>Altitude above Mean Sea Level in meters.</li>
+<li>Undulation: altitude difference between the geoid and the Ellipsoid in meters (Height above Ellipsoid = altitude + undulation).</li>
+<li>1 sigma latitude accuracy in meters.</li>
+<li>1 sigma longitude accuracy in meters.</li>
+<li>1 sigma altitude accuracy in meters.</li>
+<li>GPS time of week in ms.</li>
+<li>GPS position status, type and bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="gps_1_hdt">
+        <Alias>GPS 1 HDT</Alias>
+        <Description>
+          <span><![CDATA[GPS true heading from dual antenna system.<br/>
+Vector of 6 MAPSFloat32:<br/>
+<ul>
+<li>GPS true heading in degrees.</li>
+<li>GPS pitch angle measured from the master to the rover in degrees.</li>
+<li>1 sigma GPS true heading accuracy in degrees.</li>
+<li>1 signa GPS pitch angle accuarcy in degrees.</li>
+<li>GPS time of week in ms.</li>
+<li>GPS HDT status, type and bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="gps_1_raw">
+        <Alias>GPS 1 raw data</Alias>
+        <Description>
+          <span><![CDATA[GPS 1 raw data for post processing in the form of packets of bytes (Stream8).]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="gps_2_vel">
+        <Alias>GPS 2 velocities</Alias>
+        <Description>
+          <span><![CDATA[GPS 2 velocity log data.<br/>
+Vector of 10 MAPSFloat32:<br/>
+<ul>
+<li>GPS North, East, Down velocity in m.s^-1.</li>
+<li>GPS North, East, Down velocity 1 sigma accuracy in m.s^-1.</li>
+<li>Track ground course in degrees.</li>
+<li>Course accuracy in degrees.</li>
+<li>GPS time of week in ms.</li>
+<li>GPS velocity status, type and bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="gps_2_pos">
+        <Alias>GPS 2 positions</Alias>
+        <Description>
+          <span><![CDATA[GPS 2 position log data.<br/>
+Vector of 9 MAPSFloat64:<br/>
+<ul>
+<li>Latitude in degrees, positive north.</li>
+<li>Longitude in degrees, positive east.</li>
+<li>Altitude above Mean Sea Level in meters.</li>
+<li>Undulation: altitude difference between the geoid and the Ellipsoid in meters (Height above Ellipsoid = altitude + undulation).</li>
+<li>1 sigma latitude accuracy in meters.</li>
+<li>1 sigma longitude accuracy in meters.</li>
+<li>1 sigma altitude accuracy in meters.</li>
+<li>GPS time of week in ms.</li>
+<li>GPS position status, type and bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="gps_2_hdt">
+        <Alias>GPS 2 HDT</Alias>
+        <Description>
+          <span><![CDATA[GPS 2 true heading log data.<br/>
+Vector of 6 MAPSFloat32:<br/>
+<ul>
+<li>GPS true heading in degrees.</li>
+<li>GPS pitch angle measured from the master to the rover in degrees.</li>
+<li>1 sigma GPS true heading accuracy in degrees.</li>
+<li>1 signa GPS pitch angle accuarcy in degrees.</li>
+<li>GPS time of week in ms.</li>
+<li>GPS HDT status, type and bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="odo_vel">
+        <Alias>odo_vel</Alias>
+        <Description>
+          <span><![CDATA[Provides odometer velocity.<br/>
+Vector of 2 MAPSFloat32:<br/>
+<ul>
+<li>Velocity in m.s^-1 in the odometer direction.</li>
+<li>Odometer velocity status bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="event_A">
+        <Alias>Event A</Alias>
+        <Description>
+          <span><![CDATA[Event markers sent when events are detected on sync in A pin.<br/>
+Vector of 5 MAPSInt32:<br/>
+<ul>
+<li>Time offset for the second received event.</li>
+<li>Time offset for the third received event.</li>
+<li>Time offset for the fourth received event.</li>
+<li>Time offset for the fifth received event.</li>
+<li>Events status bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="event_B">
+        <Alias>Event B</Alias>
+        <Description>
+          <span><![CDATA[Event markers sent when events are detected on sync in B pin.<br/>
+Vector of 5 MAPSInt32:<br/>
+<ul>
+<li>Time offset for the second received event.</li>
+<li>Time offset for the third received event.</li>
+<li>Time offset for the fourth received event.</li>
+<li>Time offset for the fifth received event.</li>
+<li>Events status bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="event_C">
+        <Alias>Event C</Alias>
+        <Description>
+          <span><![CDATA[Event markers sent when events are detected on sync in C pin.<br/>
+Vector of 5 MAPSInt32:<br/>
+<ul>
+<li>Time offset for the second received event.</li>
+<li>Time offset for the third received event.</li>
+<li>Time offset for the fourth received event.</li>
+<li>Time offset for the fifth received event.</li>
+<li>Events status bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="event_D">
+        <Alias>Event D</Alias>
+        <Description>
+          <span><![CDATA[Event markers sent when events are detected on sync in D pin.<br/>
+Vector of 5 MAPSInt32:<br/>
+<ul>
+<li>Time offset for the second received event.</li>
+<li>Time offset for the third received event.</li>
+<li>Time offset for the fourth received event.</li>
+<li>Time offset for the fifth received event.</li>
+<li>Events status bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="event_E">
+        <Alias>Event E</Alias>
+        <Description>
+          <span><![CDATA[Event markers sent when events are detected on sync in E pin.<br/>
+Vector of 5 MAPSInt32:<br/>
+<ul>
+<li>Time offset for the second received event.</li>
+<li>Time offset for the third received event.</li>
+<li>Time offset for the fourth received event.</li>
+<li>Time offset for the fifth received event.</li>
+<li>Events status bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="dvl_bottom_track">
+        <Alias>DVL bottom track</Alias>
+        <Description>
+          <span><![CDATA[Doppler Velocity Log for bottom tracking data. <br/>
+Vector of 7 MAPSFloat32:<br/>
+<ul>
+<li>X, Y, Z velocities in m.s^-1 expressed in the DVL instrument frame.</li>
+<li>X, Y, Z velocities standard deviation in m.s^-1.</li>
+<li>DVL status bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="ship_motion_hp_0">
+        <Alias>Ship motion hp</Alias>
+        <Description>
+          <span><![CDATA[Delayed ship motion such as surge, sway, heave at the main monitoring point.<br/>
+Vector of 11 MAPSFloat32:<br/>
+<ul>
+<li>Surge, sway and heave in meters.</li>
+<li>Surge, sway and heave velocities.</li>
+<li>Surge, sway and heave ship Acceleration in m.s^-2.</li>
+<li>Main heave period in seconds.</li>
+<li>Ship Motion data status bitmask</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="pressure">
+        <Alias>Pressure</Alias>
+        <Description>
+          <span><![CDATA[Pressure sensor such as depth sensor or altimeter.<br/>
+Vector of 3 MAPSFloat32:<br/>
+<ul>
+<li>Pressure value in Pascals.</li>
+<li>Altitude or depth in meters (positive up).</li>
+<li>Pressure sensor status bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="usbl">
+        <Alias>USBL</Alias>
+        <Description>
+          <span><![CDATA[Raw USBL position data for subsea navigation.<br/>
+Vector of 7 MAPSFloat32:<br/>
+<ul>
+<li>Latitude in degrees, positive north.</li>
+<li>Longitude in degrees, positive east.</li>
+<li>Depth in meters below mean sea level (positive down).</li>
+<li>1 sigma latitude accuracy in meters.</li>
+<li>1 sigma longitude accuracy in meters.</li>
+<li>1 sigma depth accuracy in meters.</li>
+<li>Pressure sensor status bitmask.</li>
+</ul>]]></span>
+        </Description>
+      </Output>
+      <Output MAPSName="sbg_timestamp">
+        <Alias>SBG timestamp</Alias>
+        <Description>
+          <span><![CDATA[Timestamp in microseconds (MAPSInt64) as sent by the device along with the messages hereabove. Each time a message is sent by the device, it also published the corresponding hardware timestamp from the device on this output.]]></span>
+        </Description>
+      </Output>
+      <Input MAPSName="sbg_ecom_data_in">
+        <Alias>ECom data in</Alias>
+        <Description>
+          <span><![CDATA[<p>
+Accepts messages published by the sbgECom device component in the form of a custom C data structure.<br/>
+Input filter is defined as follows :<br/></p>
+<code>
+const MAPSTypeFilterBase MAPSFilterSbgEComData = MAPSFilterUserStructure(SbgEComData);
+</code>
+<p>For more details, see <code>sbg ECom device</code> component output documentation.</p>]]></span>
+        </Description>
+      </Input>
+    </Documentation>
+  </Lang>
+</ComponentResources>

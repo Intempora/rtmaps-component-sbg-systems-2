@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ComponentResources xmlns="http://schemas.intempora.com/RTMaps/2011/ComponentResources" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="ellipse_device" xsi:noNamespaceSchemaLocation="http://www.intempora.com/schemas/RTMaps/2011/ComponentResources.xsd">
+  <Type>Component</Type>
+  <IconFile>SBG1.png</IconFile>
+  <TargetOS>OS-independent</TargetOS>
+  <Lang lang="ENG">
+    <GroupName>Sensors</GroupName>
+    <Documentation>
+      <Component>
+        <Alias>sbgECom device (Ellipse, Ekinox, Apogee)</Alias>
+        <Description>
+          <span><![CDATA[
+          This component provides an interface to the SBG inertial and navigation devices, and supports Ellipse Ekinox
+          and Apogee series over serial port interfaces.<br/>
+
+          It will initialize the COM port, optionally configure the requested output data from the device, and output
+          received measurements in the form of a custom data structure to be decoder with the <code>sbgECom decoder
+          </code> component downstream.<br/>
+
+          <b>Update in version 2.0.0</b><br/>
+          Some breaking changes were introduced in version 2.0.0 to upgrade SDK to version 5.4.1684. This introduces
+          changes to the following properties:
+          <ul>
+            <li>
+              <b>ship_motion_0_output_mode, ship_motion_1_output_mode etc.:</b>
+              Ship motions are unified into just one field in the new version. Therefore, these properties are replaced
+              with one property ship_motion_output_mode
+            </li>
+            <li>
+              <b>ship_motion_hp_0_output_mode, ship_motion_hp_1_output_mode etc.:</b>
+              Ship motions HP are unified into just one field in the new version. Therefore, these properties are
+              replaced with one property ship_motion_hp_output_mode
+            </li>
+          </ul>
+          ]]></span>
+        </Description>
+      </Component>
+      <Property MAPSName="port_name">
+        <Alias>Port name</Alias>
+        <Description>
+          <span><![CDATA[Port name to use for establishing communication with the SBG device.]]></span>
+        </Description>
+        <DefaultValue>COM1</DefaultValue>
+      </Property>
+      <Property MAPSName="baudrate">
+        <Alias>Baudrate</Alias>
+        <Description>
+          <span><![CDATA[Baudrate to use to communicate with the device on the selected port. It should match the baudrate configured in the device.]]></span>
+        </Description>
+        <DefaultValue>115200</DefaultValue>
+      </Property>
+      <Property MAPSName="configure_device_at_startup">
+        <Alias>Configure device at startup</Alias>
+        <Description>
+          <span><![CDATA[If checked, the component will send messages to the SBG device for configuring which messages will be provided by the device and at which framerate, as specfied in the subsequent properties.<br/>
+Otherwise, the component will just acquire the stream as already configured in the device, no message will be sent to the device itself and the subsequent properties will be ignored.<br/>]]></span>
+        </Description>
+        <DefaultValue>true</DefaultValue>
+      </Property>
+      <Property MAPSName="status_output_mode">
+        <Alias>Status output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for status general, clock, com aiding, solution, heave.]]></span>
+        </Description>
+        <DefaultValue>1 Hz</DefaultValue>
+      </Property>
+      <Property MAPSName="utc_time_output_mode">
+        <Alias>UTC time output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for UTC time will be emitted by the device.]]></span>
+        </Description>
+        <DefaultValue>On new data</DefaultValue>
+      </Property>
+      <Property MAPSName="imu_data_output_mode">
+        <Alias>IMU data output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for IMU status, acc., gyro, temp delta speeds and delta angles values.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="mag_output_mode">
+        <Alias>Mag output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for magnetic data with associated accelerometer on each axis.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="mag_calib_output_mode">
+        <Alias>Mag calibration output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for magnetometer calibration data (raw buffer).]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="EKF_euler_output_mode">
+        <Alias>EKF Euler output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for EKF orientation in the form of Euler angles: roll, pitch, yaw and their accuracies on each axis.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="EKF_quat_output_mode">
+        <Alias>EKF quaternion output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for the EKF orientation data in the form of 4 quaternion values.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="EKF_nav_output_mode">
+        <Alias>EKF navigation output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for position and velocities in NED coordinates with the accuracies on each axis.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="ship_motion_output_mode">
+        <Alias>Ship motion output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for yeave, surge and sway and accelerations on each axis for up to 4 points.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="gps_1_vel_output_mode">
+        <Alias>GPS 1 velocity output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for GPS velocities from primary or secondary GPS receiver.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="gps_1_pos_output_mode">
+        <Alias>GPS 1 position output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for GPS positions from primary or secondary GPS receiver.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="gps_1_hdt_output_mode">
+        <Alias>GPS 1 HDT output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for GPS true heading from dual antenna system.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="gps_1_raw_output_mode">
+        <Alias>GPS 1 raw data output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for GPS 1 raw data for post processing.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="gps_2_vel_output_mode">
+        <Alias>GPS 2 velocity output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for GPS 2 velocity log data.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="gps_2_pos_output_mode">
+        <Alias>GPS 2 position output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for GPS 2 position log data.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="gps_2_hdt_output_mode">
+        <Alias>GPS 2 HDT output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for GPS 2 true heading log data.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="odo_vel_output_mode">
+        <Alias>Odometer velocity output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for odometer velocity.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="event_A_output_mode">
+        <Alias>Event A output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for event markers sent when events are detected on sync in A pin.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="event_B_output_mode">
+        <Alias>Event B output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for event markers sent when events are detected on sync in B pin.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="event_C_output_mode">
+        <Alias>Event C output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for event markers sent when events are detected on sync in C pin.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="event_D_output_mode">
+        <Alias>Event D output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for event markers sent when events are detected on sync in D pin.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="event_E_output_mode">
+        <Alias>Event E output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for event markers sent when events are detected on sync in E pin.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="dvl_bottom_track_output_mode">
+        <Alias>DVL bottom track output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for doppler velocity log for bottom tracking data.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="ship_motion_hp_output_mode">
+        <Alias>Ship motion HP output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for delayed ship motion such as surge, sway, heave at the main monitoring point.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="pressure_output_mode">
+        <Alias>Pressure output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for pressure sensor such as depth sensor or altimeter.]]></span>
+        </Description>
+      </Property>
+      <Property MAPSName="usbl_output_mode">
+        <Alias>Usbl output mode</Alias>
+        <Description>
+          <span><![CDATA[Output mode for raw USBL position data for subsea navigation.]]></span>
+        </Description>
+      </Property>
+      <Output MAPSName="sbg_ecomdata_out">
+        <Alias>ECom data out</Alias>
+        <Description>
+          <span><![CDATA[<p>
+Messages emitted by the device are published on this output in the form of a custom C data structure.<br/>
+Definition is as follows and based on data structures defined in sbgECom SDK:<br/></p>
+<code>
+typedef struct SbgEComData<br/>
+{<br/>
+<blockquote>
+	SbgEComCmdId cmd;<br/>
+	SbgBinaryLogData logdata;<br/>
+</blockquote>
+} SbgEComData;<br/>
+</code>]]></span>
+        </Description>
+      </Output>
+    </Documentation>
+  </Lang>
+</ComponentResources>

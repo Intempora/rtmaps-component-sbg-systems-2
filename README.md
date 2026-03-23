@@ -55,27 +55,36 @@ This sample builds using CMake. Please follow the instructions on [Developing RT
 * Move into the root folder (the folder that contains the root _CMakeLists.txt_ file and this _README.md_ file)
 ## Windows
 ```sh
-cmake -B build-win -G "Visual Studio 17 2022"
+cmake -B build -G "Visual Studio 17 2022"
 ```
 ```sh
-cmake --build build-win -j 10
+cmake --build build -j 10 --config Release
 ```
 ## Linux
 ```sh
-cmake -B build-lin -G "Unix Makefiles"
+cmake -B build -G "Unix Makefiles"
 ```
 ```sh
-cmake --build build-lin -j 10
+cmake --build build -j 10 --config Release
 ```
 This will generate a package file _sbg_systems_2.pck_ in the build directory. The complete path will be logged during
 the build.
 
 # Using the package
+## Installing the package (optional)
+You can install the package to make it available system-wide. This requires administrator rights.
+```sh
+cmake --install build
+```
+This will install the package in the default RTMaps package directory (`[RTMAPS_SDKDIR]/packages`). This also installs
+the documentation files used by RTMaps Studio to display help.
+
 ## RTMaps Studio
 * Open RTMaps Studio
 * In the Explorer view, select the folder containing the _sbg_systems_2.pck_ file generated
 * Double-click on _sbg_systems_2.pck_ to load the package
 * Now the package is loaded and you can drag and drop components from the Components view into the Diagram view
+
 ## RTMaps Runtime
 * Run RTMaps Runtime
 * Load the diagram
